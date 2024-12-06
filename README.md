@@ -29,6 +29,31 @@ sudo ln -s /etc/sv/dbus /var/service/
 sudo sv status dbus
 
 ### Testing
-Run this command:
+Generate Sway config:
+
+sudo cp -r /etc/sway /home/yourusername/.config/sway
+
+Run this command to test Sway:
 sway
 to enter Sway and check if everything is working correctly and its usable. If screen resolution is wrong its okay.
+
+## If it didnt work install your GPU drivers
+
+Intel:
+sudo xbps-install xf86-video-intel
+AMDGPU:
+sudo xbps-install xf86-video-amdgpu
+NVIDIA:
+sudo xbps-install xf86-video-nouveau
+
+Configure bash:
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+
+# OPTIONAL
+
+## Login window
+
+sudo xbps-install greetd
+sudo ln -s /etc/sv/greetd /var/service/
+sudo sv status greetd
+
